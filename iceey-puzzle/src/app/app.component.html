@@ -1,3 +1,23 @@
-<h1>
-  {{title}}
-</h1>
+
+
+  <img id="puzzleImage" [src]="imgUrl" [style.display]="'none'" />
+  <div id="puzzleBoard" [style.display]="'block'" [style.position]="'relative'" [style.width]="basicDimension+'px'" [style.height]="basicDimension+'px'" [style.background-color]="'black'" >
+    <button *ngFor="let piece of puzzlePieces;let i = index;"
+            [style.position]="'absolute'"
+            [style.cursor]="'pointer'" 
+            [style.background-color]="'white'" 
+            [style.position.display]="'inline-block'"
+            [style.background-position-x]="-getRelativePosition(i,piece.correct_x,piece.correct_y).x+'px'"
+            [style.background-position-y]="-getRelativePosition(i,piece.correct_x,piece.correct_y).y+'px'"
+            [style.left] = "getRelativePosition(i,piece.current_x,piece.current_y).x+'px'"
+            [style.top] = "getRelativePosition(i,piece.current_x,piece.current_y).y+'px'"
+            [style.width]="basicDimension/puzzleLevel+'px'" 
+            [style.height]="basicDimension/puzzleLevel+'px'"
+            [style.background-image]="i==puzzlePieces.length-1?  'none':('url('+imgUrl+')')"
+            [hidden]="piece.isBlankPiece"
+            (click)="switchWithBlank(piece)"  >
+      {{i}}
+    </button>
+  </div>
+  <button (click)="shufflePieces()" >Shuffle</button>
+  <button (click)="arrangePieces()" >Arrange</button>
