@@ -1,2 +1,4 @@
 /iceey-puzzle/node_modules
 /iceey-puzzle/e2e
+/iceey-puzzle/dist/
+*.js.map
