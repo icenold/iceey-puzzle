@@ -22,7 +22,7 @@ export class AppComponent  {
   ngOnInit() {
     //test
     this.basicDimension = 225;
-    this.imgUrl = "/assets/download.jpg";
+    this.imgUrl = "/iceey-puzzle/assets/download.jpg";
     this.puzzleLevel = 3;
     //test
     this.assignPieces();
