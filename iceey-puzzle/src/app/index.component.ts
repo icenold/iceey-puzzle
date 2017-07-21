@@ -1,5 +1,4 @@
 import { EventEmitter,Output,Component, OnInit,Input, ElementRef } from '@angular/core';
-import { PuzzlePiece } from './puzzle-piece';
 
 @Component({
   selector: 'app-index',

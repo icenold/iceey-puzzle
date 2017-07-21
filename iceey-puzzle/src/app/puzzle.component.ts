@@ -1,5 +1,4 @@
 import { EventEmitter,Output,Component, OnInit,Input, ElementRef } from '@angular/core';
-import { PuzzlePiece } from './puzzle-piece';
 
 @Component({
   selector: 'iceey-puzzle',
@@ -99,4 +98,11 @@ export class PuzzleComponent  {
   randomIntFromInterval(min,max){
     return Math.floor(Math.random()*(max-min+1)+min);
   }
+};
+class PuzzlePiece {
+    correct_x:number;
+    correct_y:number;
+    current_x:number;
+    current_y:number;
+    isBlankPiece:boolean;
 }

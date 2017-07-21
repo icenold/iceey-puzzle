@@ -19,4 +19,4 @@ import { IndexComponent } from './index.component';
   providers: [],
   bootstrap: [IndexComponent]
 })
-export class AppModule { }
+export class IceeyPuzzleModule { }
