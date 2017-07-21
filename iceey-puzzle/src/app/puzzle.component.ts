@@ -21,9 +21,9 @@ export class PuzzleComponent  {
 
   ngOnInit() {
     //test
-    // this.basicDimension = 225;
-    // this.imgUrl = "/iceey-puzzle/assets/download.jpg";
-    // this.puzzleLevel = 3;
+    this.basicDimension = 225;
+    this.imgUrl = "/iceey-puzzle/assets/download.jpg";
+    this.puzzleLevel = 3;
     //test
     this.assignPieces();
     this.shufflePieces();
