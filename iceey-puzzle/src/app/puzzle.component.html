@@ -14,7 +14,7 @@
             [style.width]="basicDimension/puzzleLevel+'px'" 
             [style.height]="basicDimension/puzzleLevel+'px'"
             [style.background-image]="i==puzzlePieces.length-1?  'none':('url('+imgUrl+')')"
-            
+            [style.background-size]="basicDimension+'px'"
             [hidden]="piece.isBlankPiece"
             (click)="switchWithBlank(piece)"  >
       {{i+1}}

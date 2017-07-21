@@ -10,9 +10,12 @@ export class PuzzleComponent  {
 
   constructor(public elem:ElementRef) { }
   
-  @Output() onPuzzleMove:EventEmitter<any> = new EventEmitter<any>();
+  @Output() puzzleClick:EventEmitter<any> = new EventEmitter<any>();
   @Input() imgUrl:string;
   @Input() puzzleLevel:number;
+  ngOnChanges(changes: any) {
+    this.beginPuzzle();
+  }
   @Input() basicDimension:number;
 
   puzzlePieces:PuzzlePiece[] = [];
@@ -21,17 +24,23 @@ export class PuzzleComponent  {
 
   ngOnInit() {
     //test
-    this.basicDimension = 225;
-    this.imgUrl = "/iceey-puzzle/assets/download.jpg";
-    this.puzzleLevel = 3;
+    // this.basicDimension = 225;
+    // this.imgUrl = "/iceey-puzzle/assets/download.jpg";
+    // this.puzzleLevel = 3;
     //test
+    //console.log(JSON.parse(JSON.stringify(this)));
+    //console.log("start assign and shuffle");
+    
+    //console.log('pieces',this.puzzlePieces);
+    //console.log('puzzleBoard',this.getBoardPossition());
+    this.beginPuzzle();
+  }
+  beginPuzzle(){
     this.assignPieces();
     this.shufflePieces();
-    console.log('pieces',this.puzzlePieces);
-    console.log('puzzleBoard',this.getBoardPossition());
   }
-
   private assignPieces(){
+    this.puzzlePieces = [];
     for(var y = 0; y<this.puzzleLevel; y++){
       for(var x = 0; x<this.puzzleLevel; x++){
         var p = new PuzzlePiece();
@@ -57,7 +66,7 @@ export class PuzzleComponent  {
       clickedPiece.current_x = blankX;
       clickedPiece.current_y = blankY;
       var isComplete:boolean = this.jsonCorrectPositions==JSON.stringify(this.puzzlePieces);
-      this.onPuzzleMove.emit(isComplete);
+      this.puzzleClick.emit(isComplete);
     }
   }
   getRelativePosition(index:number, _x:number, _y:number){
@@ -73,7 +82,7 @@ export class PuzzleComponent  {
   }
   public shufflePieces(){
     var pieceSetter:PuzzlePiece[] = JSON.parse(JSON.stringify(this.puzzlePieces));
-    //console.log(pieceSetter);
+    ////console.log(pieceSetter);
     for(var ctr=0; ctr<this.puzzlePieces.length; ctr++){
       var randomIndex = this.randomIntFromInterval(0,pieceSetter.length-1);
       var removedPiece = pieceSetter.splice(randomIndex,1)[0];
