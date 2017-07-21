@@ -5,13 +5,16 @@ import { EventEmitter,Output,Component, OnInit,Input, ElementRef } from '@angula
   styles:[`.description tr td{ border-top:solid 1px black; padding:5px }`],
   template: `
 
-<iceey-puzzle 
-    #puzzle
-    [imgUrl]="settings.imgUrl"
-    [basicDimension]="settings.dimension"
-    [puzzleLevel]="settings.level"
-    (puzzleClick)="console.log($event)" >
-</iceey-puzzle>
+<div [style.text-align]="'center'" >
+  <iceey-puzzle 
+      #puzzle
+      [imgUrl]="settings.imgUrl"
+      [basicDimension]="settings.dimension"
+      [puzzleLevel]="settings.level"
+      (puzzleClick)="console.log($event)" >
+  </iceey-puzzle>
+</div>
+
 <table class="description">
   <tr>
     <td>

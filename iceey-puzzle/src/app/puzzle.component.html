@@ -1,7 +1,13 @@
 
 
   <img id="puzzleImage" [src]="imgUrl" [style.display]="'none'" />
-  <div id="puzzleBoard" [style.display]="'block'" [style.position]="'relative'" [style.width]="basicDimension+'px'" [style.height]="basicDimension+'px'" [style.background-color]="'black'" >
+  <div id="puzzleBoard" 
+    [style.display]="'block'" 
+    [style.position]="'relative'" 
+    [style.width]="basicDimension+'px'" 
+    [style.height]="basicDimension+'px'" 
+    [style.background-color]="'black'"
+    [style.margin]="'auto'" >
     <button *ngFor="let piece of puzzlePieces;let i = index;"
             [style.position]="'absolute'"
             [style.cursor]="'pointer'" 
