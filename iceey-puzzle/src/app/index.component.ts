@@ -14,7 +14,7 @@ import { EventEmitter,Output,Component, OnInit,Input, ElementRef } from '@angula
       (puzzleClick)="console.log($event)" >
   </iceey-puzzle>
 </div>
-
+<br>
 <table class="description">
   <tr>
     <td>
