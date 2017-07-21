@@ -10,7 +10,7 @@ export class PuzzleComponent  {
 
   constructor(public elem:ElementRef) { }
   
-  @Output() onPuzzleMove:EventEmitter<any>;
+  @Output() onPuzzleMove:EventEmitter<any> = new EventEmitter<any>();
   @Input() imgUrl:string;
   @Input() puzzleLevel:number;
   @Input() basicDimension:number;
