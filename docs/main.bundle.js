@@ -159,7 +159,7 @@ IndexComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
         selector: 'app-index',
         styles: [".description tr td{ border-top:solid 1px black; padding:5px }"],
-        template: "\n\n<iceey-puzzle \n    #puzzle\n    [imgUrl]=\"settings.imgUrl\"\n    [basicDimension]=\"settings.dimension\"\n    [puzzleLevel]=\"settings.level\"\n    (puzzleClick)=\"console.log($event)\" >\n</iceey-puzzle>\n<table class=\"description\">\n  <tr>\n    <td>\n      <label>Input: [imgUrl]</label>\n      <select [(ngModel)]=\"settings.imgUrl\" >\n        <option *ngFor=\"let i of imageSources\" [value]=\"i\" >{{i.replace('/iceey-puzzle','').replace('/assets/','')}}</option>\n      </select>    \n    </td>\n  </tr>\n  <tr>\n    <td>\n      <label>Input: [basicDimension]</label>\n      <input type=\"number\" [(ngModel)]=\"settings.dimension\" min=\"200\" >\n    </td>\n  </tr>\n  <tr>\n    <td>\n      <label>Input: [puzzleLevel]</label>\n      <input type=\"number\" [(ngModel)]=\"settings.level\" min=\"3\" >\n    </td>\n  </tr>\n  <tr>\n    <td>\n      <label>Output: (puzzleClick) - Fires an $event. Emits true when the puzzle is completed. See console window</label>\n    </td>\n  </tr>\n</table>\n\n\n"
+        template: "\n\n<iceey-puzzle \n    #puzzle\n    [imgUrl]=\"settings.imgUrl\"\n    [basicDimension]=\"settings.dimension\"\n    [puzzleLevel]=\"settings.level\"\n    (puzzleClick)=\"console.log($event)\" >\n</iceey-puzzle>\n<table class=\"description\">\n  <tr>\n    <td>\n      <label>Input: [imgUrl]</label>\n      <select [(ngModel)]=\"settings.imgUrl\" >\n        <option *ngFor=\"let i of imageSources\" [value]=\"i\" >{{i.replace('/iceey-puzzle','').replace('/assets/','')}}</option>\n      </select>    \n    </td>\n  </tr>\n  <tr>\n    <td>\n      <label>Input: [basicDimension]</label>\n      <input type=\"number\" [(ngModel)]=\"settings.dimension\" min=\"200\" >\n    </td>\n  </tr>\n  <tr>\n    <td>\n      <label>Input: [puzzleLevel]</label>\n      <input type=\"number\" [(ngModel)]=\"settings.level\" min=\"3\" >\n    </td>\n  </tr>\n  <tr>\n    <td>\n      Output: (puzzleClick) - Fires an $event. Emits true when the puzzle is completed. See console window\n    </td>\n  </tr>\n  <tr>\n    <td>\n      Method: <button (click)=\"puzzle.shuffle()\" >shuffle()</button> - Shuffle puzzle pieces\n    </td>\n  </tr>\n  <tr>\n    <td>\n      Method: <button (click)=\"puzzle.arrange()\" >arrange()</button> - Arrange puzzle pieces\n    </td>\n  </tr>\n</table>\n\n\n"
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* ElementRef */]) === "function" && _a || Object])
 ], IndexComponent);
@@ -225,7 +225,7 @@ var PuzzleComponent = (function () {
     };
     PuzzleComponent.prototype.beginPuzzle = function () {
         this.assignPieces();
-        this.shufflePieces();
+        this.shuffle();
     };
     PuzzleComponent.prototype.assignPieces = function () {
         this.puzzlePieces = [];
@@ -265,10 +265,10 @@ var PuzzleComponent = (function () {
             y: y
         };
     };
-    PuzzleComponent.prototype.arrangePieces = function () {
+    PuzzleComponent.prototype.arrange = function () {
         this.puzzlePieces = JSON.parse(this.jsonCorrectPositions);
     };
-    PuzzleComponent.prototype.shufflePieces = function () {
+    PuzzleComponent.prototype.shuffle = function () {
         var pieceSetter = JSON.parse(JSON.stringify(this.puzzlePieces));
         ////console.log(pieceSetter);
         for (var ctr = 0; ctr < this.puzzlePieces.length; ctr++) {

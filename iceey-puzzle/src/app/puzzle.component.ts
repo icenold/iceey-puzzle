@@ -37,7 +37,7 @@ export class PuzzleComponent  {
   }
   beginPuzzle(){
     this.assignPieces();
-    this.shufflePieces();
+    this.shuffle();
   }
   private assignPieces(){
     this.puzzlePieces = [];
@@ -77,10 +77,10 @@ export class PuzzleComponent  {
       y:y
     };
   }
-  public arrangePieces(){
+  public arrange(){
     this.puzzlePieces=JSON.parse(this.jsonCorrectPositions);
   }
-  public shufflePieces(){
+  public shuffle(){
     var pieceSetter:PuzzlePiece[] = JSON.parse(JSON.stringify(this.puzzlePieces));
     ////console.log(pieceSetter);
     for(var ctr=0; ctr<this.puzzlePieces.length; ctr++){

@@ -36,7 +36,17 @@ import { PuzzlePiece } from './puzzle-piece';
   </tr>
   <tr>
     <td>
-      <label>Output: (puzzleClick) - Fires an $event. Emits true when the puzzle is completed. See console window</label>
+      Output: (puzzleClick) - Fires an $event. Emits true when the puzzle is completed. See console window
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Method: <button (click)="puzzle.shuffle()" >shuffle()</button> - Shuffle puzzle pieces
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Method: <button (click)="puzzle.arrange()" >arrange()</button> - Arrange puzzle pieces
     </td>
   </tr>
 </table>
