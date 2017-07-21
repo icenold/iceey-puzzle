@@ -3,10 +3,10 @@ import { PuzzlePiece } from './puzzle-piece';
 
 @Component({
   selector: 'iceey-puzzle',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  templateUrl: './puzzle.component.html',
+  styleUrls: ['./puzzle.component.css']
 })
-export class AppComponent  {
+export class PuzzleComponent  {
 
   constructor(public elem:ElementRef) { }
   

@@ -14,10 +14,11 @@
             [style.width]="basicDimension/puzzleLevel+'px'" 
             [style.height]="basicDimension/puzzleLevel+'px'"
             [style.background-image]="i==puzzlePieces.length-1?  'none':('url('+imgUrl+')')"
+            [style.background-size]="basicDimension"
             [hidden]="piece.isBlankPiece"
             (click)="switchWithBlank(piece)"  >
-      {{i}}
+      {{i+1}}
     </button>
   </div>
-  <button (click)="shufflePieces()" >Shuffle</button>
-  <button (click)="arrangePieces()" >Arrange</button>
+  <!--<button (click)="shufflePieces()" >Shuffle</button>
+  <button (click)="arrangePieces()" >Arrange</button>-->
