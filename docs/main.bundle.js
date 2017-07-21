@@ -197,13 +197,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var PuzzleComponent = (function () {
     function PuzzleComponent(elem) {
         this.elem = elem;
+        this.onPuzzleMove = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* EventEmitter */]();
         this.puzzlePieces = [];
     }
     PuzzleComponent.prototype.ngOnInit = function () {
         //test
-        this.basicDimension = 225;
-        this.imgUrl = "/iceey-puzzle/assets/download.jpg";
-        this.puzzleLevel = 3;
+        // this.basicDimension = 225;
+        // this.imgUrl = "/iceey-puzzle/assets/download.jpg";
+        // this.puzzleLevel = 3;
         //test
         this.assignPieces();
         this.shufflePieces();
