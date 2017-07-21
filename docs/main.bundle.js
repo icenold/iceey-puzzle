@@ -251,7 +251,11 @@ var PuzzleComponent = (function () {
         };
     };
     PuzzleComponent.prototype.arrange = function () {
-        this.puzzlePieces = JSON.parse(this.jsonCorrectPositions);
+        this.puzzlePieces.forEach(function (p) {
+            p.current_x = p.correct_x;
+            p.current_y = p.correct_y;
+        });
+        //this.puzzlePieces=JSON.parse(this.jsonCorrectPositions);
     };
     PuzzleComponent.prototype.shuffle = function () {
         var pieceSetter = JSON.parse(JSON.stringify(this.puzzlePieces));

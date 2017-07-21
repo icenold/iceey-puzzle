@@ -78,7 +78,11 @@ export class PuzzleComponent  {
     };
   }
   public arrange(){
-    this.puzzlePieces=JSON.parse(this.jsonCorrectPositions);
+    this.puzzlePieces.forEach(p=>{
+      p.current_x = p.correct_x;
+      p.current_y = p.correct_y;
+    });
+    //this.puzzlePieces=JSON.parse(this.jsonCorrectPositions);
   }
   public shuffle(){
     var pieceSetter:PuzzlePiece[] = JSON.parse(JSON.stringify(this.puzzlePieces));
