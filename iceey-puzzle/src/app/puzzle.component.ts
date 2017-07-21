@@ -10,6 +10,7 @@ export class PuzzleComponent  {
   constructor(public elem:ElementRef) { }
   
   @Output() puzzleClick:EventEmitter<any> = new EventEmitter<any>();
+  @Input() delay:number = .5;
   @Input() imgUrl:string;
   @Input() puzzleLevel:number;
   ngOnChanges(changes: any) {

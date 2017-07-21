@@ -11,6 +11,7 @@ import { EventEmitter,Output,Component, OnInit,Input, ElementRef } from '@angula
       [imgUrl]="settings.imgUrl"
       [basicDimension]="settings.dimension"
       [puzzleLevel]="settings.level"
+      [delay]="settings.delay"
       (puzzleClick)="console.log($event)" >
   </iceey-puzzle>
 </div>
@@ -34,6 +35,12 @@ import { EventEmitter,Output,Component, OnInit,Input, ElementRef } from '@angula
     <td>
       <label>Input: [puzzleLevel]</label>
       <input type="number" [(ngModel)]="settings.level" min="3" >
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <label>Input: [delay]</label>
+      <input type="number" [(ngModel)]="settings.delay" step="0.1" >
     </td>
   </tr>
   <tr>
@@ -75,7 +82,8 @@ export class IndexComponent  {
   settings:any = {
     imgUrl:this.imageSources[0],
     dimension:255,
-    level:3
+    level:3,
+    delay:0.5
   };
 
   // imageSources:any[] = [

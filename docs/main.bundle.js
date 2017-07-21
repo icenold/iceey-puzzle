@@ -21,7 +21,7 @@ module.exports = module.exports.toString();
 /***/ 136:
 /***/ (function(module, exports) {
 
-module.exports = "\r\n\r\n  <img id=\"puzzleImage\" [src]=\"imgUrl\" [style.display]=\"'none'\" />\r\n  <div id=\"puzzleBoard\" \r\n    [style.display]=\"'block'\" \r\n    [style.position]=\"'relative'\" \r\n    [style.width]=\"basicDimension+'px'\" \r\n    [style.height]=\"basicDimension+'px'\" \r\n    [style.background-color]=\"'black'\"\r\n    [style.margin]=\"'auto'\" >\r\n    <button *ngFor=\"let piece of puzzlePieces;let i = index;\"\r\n            [style.position]=\"'absolute'\"\r\n            [style.cursor]=\"'pointer'\" \r\n            [style.background-color]=\"'white'\" \r\n            [style.position.display]=\"'inline-block'\"\r\n            [style.background-position-x]=\"-getRelativePosition(i,piece.correct_x,piece.correct_y).x+'px'\"\r\n            [style.background-position-y]=\"-getRelativePosition(i,piece.correct_x,piece.correct_y).y+'px'\"\r\n            [style.left] = \"getRelativePosition(i,piece.current_x,piece.current_y).x+'px'\"\r\n            [style.top] = \"getRelativePosition(i,piece.current_x,piece.current_y).y+'px'\"\r\n            [style.width]=\"basicDimension/puzzleLevel+'px'\" \r\n            [style.height]=\"basicDimension/puzzleLevel+'px'\"\r\n            [style.background-image]=\"i==puzzlePieces.length-1?  'none':('url('+imgUrl+')')\"\r\n            [style.background-size]=\"basicDimension+'px'\"\r\n            [hidden]=\"piece.isBlankPiece\"\r\n            (click)=\"switchWithBlank(piece)\"  >\r\n      {{i+1}}\r\n    </button>\r\n  </div>\r\n  <!--<button (click)=\"shufflePieces()\" >Shuffle</button>\r\n  <button (click)=\"arrangePieces()\" >Arrange</button>-->"
+module.exports = "\r\n\r\n  <img id=\"puzzleImage\" [src]=\"imgUrl\" [style.display]=\"'none'\" />\r\n  <div id=\"puzzleBoard\" \r\n    [style.display]=\"'block'\" \r\n    [style.position]=\"'relative'\" \r\n    [style.width]=\"basicDimension+'px'\" \r\n    [style.height]=\"basicDimension+'px'\" \r\n    [style.background-color]=\"'black'\"\r\n    [style.margin]=\"'auto'\" >\r\n    <button *ngFor=\"let piece of puzzlePieces;let i = index;\"\r\n            [style.position]=\"'absolute'\"\r\n            [style.cursor]=\"'pointer'\" \r\n            [style.background-color]=\"'white'\" \r\n            [style.position.display]=\"'inline-block'\"\r\n            [style.background-position-x]=\"-getRelativePosition(i,piece.correct_x,piece.correct_y).x+'px'\"\r\n            [style.background-position-y]=\"-getRelativePosition(i,piece.correct_x,piece.correct_y).y+'px'\"\r\n            [style.left] = \"getRelativePosition(i,piece.current_x,piece.current_y).x+'px'\"\r\n            [style.top] = \"getRelativePosition(i,piece.current_x,piece.current_y).y+'px'\"\r\n            [style.width]=\"basicDimension/puzzleLevel+'px'\" \r\n            [style.height]=\"basicDimension/puzzleLevel+'px'\"\r\n            [style.background-image]=\"i==puzzlePieces.length-1?  'none':('url('+imgUrl+')')\"\r\n            [style.background-size]=\"basicDimension+'px'\"\r\n            [style.transition-duration]=\"delay+'s'\"\r\n            [hidden]=\"piece.isBlankPiece\"\r\n            (click)=\"switchWithBlank(piece)\"  >\r\n      {{i+1}}\r\n    </button>\r\n  </div>\r\n  <!--<button (click)=\"shufflePieces()\" >Shuffle</button>\r\n  <button (click)=\"arrangePieces()\" >Arrange</button>-->"
 
 /***/ }),
 
@@ -150,7 +150,8 @@ var IndexComponent = (function () {
         this.settings = {
             imgUrl: this.imageSources[0],
             dimension: 255,
-            level: 3
+            level: 3,
+            delay: 0.5
         };
     }
     return IndexComponent;
@@ -159,7 +160,7 @@ IndexComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
         selector: 'app-index',
         styles: [".description tr td{ border-top:solid 1px black; padding:5px }"],
-        template: "\n\n<div [style.text-align]=\"'center'\" >\n  <iceey-puzzle \n      #puzzle\n      [imgUrl]=\"settings.imgUrl\"\n      [basicDimension]=\"settings.dimension\"\n      [puzzleLevel]=\"settings.level\"\n      (puzzleClick)=\"console.log($event)\" >\n  </iceey-puzzle>\n</div>\n<br>\n<table class=\"description\">\n  <tr>\n    <td>\n      <label>Input: [imgUrl]</label>\n      <select [(ngModel)]=\"settings.imgUrl\" >\n        <option *ngFor=\"let i of imageSources\" [value]=\"i\" >{{i.replace('/iceey-puzzle','').replace('/assets/','')}}</option>\n      </select>    \n    </td>\n  </tr>\n  <tr>\n    <td>\n      <label>Input: [basicDimension]</label>\n      <input type=\"number\" [(ngModel)]=\"settings.dimension\" min=\"200\" >\n    </td>\n  </tr>\n  <tr>\n    <td>\n      <label>Input: [puzzleLevel]</label>\n      <input type=\"number\" [(ngModel)]=\"settings.level\" min=\"3\" >\n    </td>\n  </tr>\n  <tr>\n    <td>\n      Output: (puzzleClick) - Fires an $event. Emits true when the puzzle is completed. See console window\n    </td>\n  </tr>\n  <tr>\n    <td>\n      Method: <button (click)=\"puzzle.shuffle()\" >shuffle()</button> - Shuffle puzzle pieces\n    </td>\n  </tr>\n  <tr>\n    <td>\n      Method: <button (click)=\"puzzle.arrange()\" >arrange()</button> - Arrange puzzle pieces\n    </td>\n  </tr>\n</table>\n\n\n"
+        template: "\n\n<div [style.text-align]=\"'center'\" >\n  <iceey-puzzle \n      #puzzle\n      [imgUrl]=\"settings.imgUrl\"\n      [basicDimension]=\"settings.dimension\"\n      [puzzleLevel]=\"settings.level\"\n      [delay]=\"settings.delay\"\n      (puzzleClick)=\"console.log($event)\" >\n  </iceey-puzzle>\n</div>\n<br>\n<table class=\"description\">\n  <tr>\n    <td>\n      <label>Input: [imgUrl]</label>\n      <select [(ngModel)]=\"settings.imgUrl\" >\n        <option *ngFor=\"let i of imageSources\" [value]=\"i\" >{{i.replace('/iceey-puzzle','').replace('/assets/','')}}</option>\n      </select>    \n    </td>\n  </tr>\n  <tr>\n    <td>\n      <label>Input: [basicDimension]</label>\n      <input type=\"number\" [(ngModel)]=\"settings.dimension\" min=\"200\" >\n    </td>\n  </tr>\n  <tr>\n    <td>\n      <label>Input: [puzzleLevel]</label>\n      <input type=\"number\" [(ngModel)]=\"settings.level\" min=\"3\" >\n    </td>\n  </tr>\n  <tr>\n    <td>\n      <label>Input: [delay]</label>\n      <input type=\"number\" [(ngModel)]=\"settings.delay\" step=\"0.1\" >\n    </td>\n  </tr>\n  <tr>\n    <td>\n      Output: (puzzleClick) - Fires an $event. Emits true when the puzzle is completed. See console window\n    </td>\n  </tr>\n  <tr>\n    <td>\n      Method: <button (click)=\"puzzle.shuffle()\" >shuffle()</button> - Shuffle puzzle pieces\n    </td>\n  </tr>\n  <tr>\n    <td>\n      Method: <button (click)=\"puzzle.arrange()\" >arrange()</button> - Arrange puzzle pieces\n    </td>\n  </tr>\n</table>\n\n\n"
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* ElementRef */]) === "function" && _a || Object])
 ], IndexComponent);
@@ -189,6 +190,7 @@ var PuzzleComponent = (function () {
     function PuzzleComponent(elem) {
         this.elem = elem;
         this.puzzleClick = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* EventEmitter */]();
+        this.delay = .5;
         this.puzzlePieces = [];
     }
     PuzzleComponent.prototype.ngOnChanges = function (changes) {
@@ -276,6 +278,10 @@ __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_4" /* Output */])(),
     __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* EventEmitter */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* EventEmitter */]) === "function" && _a || Object)
 ], PuzzleComponent.prototype, "puzzleClick", void 0);
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["O" /* Input */])(),
+    __metadata("design:type", Number)
+], PuzzleComponent.prototype, "delay", void 0);
 __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["O" /* Input */])(),
     __metadata("design:type", String)
