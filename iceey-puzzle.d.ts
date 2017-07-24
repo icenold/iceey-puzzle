@@ -1,1 +1,0 @@
-export { IceeyPuzzleModule } from './src/app/app.module';
