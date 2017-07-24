@@ -102,6 +102,9 @@ IceeyPuzzleModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_5__index_component__["a" /* IndexComponent */],
             __WEBPACK_IMPORTED_MODULE_4__puzzle_component__["a" /* PuzzleComponent */]
         ],
+        exports: [
+            __WEBPACK_IMPORTED_MODULE_4__puzzle_component__["a" /* PuzzleComponent */]
+        ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
             __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */],
@@ -153,14 +156,22 @@ var IndexComponent = (function () {
             level: 3,
             delay: 0.5
         };
+        this.usage = "<iceey-puzzle></iceey-puzzle>";
+        this.imgUrlUsage = "<iceey-puzzle [imgUrl]=\"<string>\" ></iceey-puzzle>";
+        this.basicDimensionUsage = "<iceey-puzzle [basicDimensionUsage]=\"<number>\" ></iceey-puzzle>";
+        this.puzzleLevelUsage = "<iceey-puzzle [puzzleLevel]=\"<number>\" ></iceey-puzzle>";
+        this.delayUsage = "<iceey-puzzle [delay]=\"<number>\" ></iceey-puzzle>";
+        this.puzzleClickUsage = "<iceey-puzzle (puzzleClick)=\"doSomething($event)\" ></iceey-puzzle>";
+        this.shuffleUsage = "<iceey-puzzle #myPuzzle ></iceey-puzzle>\n<button (click)=\"myPuzzle.shuffle()\" >Everyday I'm shufflin<button>";
+        this.arrangeUsage = "<iceey-puzzle #myPuzzle ></iceey-puzzle>\n<button (click)=\"myPuzzle.arrange()\" >Arrange it!<button>";
     }
     return IndexComponent;
 }());
 IndexComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
         selector: 'app-index',
-        styles: [".description tr td{ border-top:solid 1px black; padding:5px }"],
-        template: "\n\n<div [style.text-align]=\"'center'\" >\n  <iceey-puzzle \n      #puzzle\n      [imgUrl]=\"settings.imgUrl\"\n      [basicDimension]=\"settings.dimension\"\n      [puzzleLevel]=\"settings.level\"\n      [delay]=\"settings.delay\"\n      (puzzleClick)=\"console.log($event)\" >\n  </iceey-puzzle>\n</div>\n<br>\n<table class=\"description\">\n  <tr>\n    <td>\n      <label>Input: [imgUrl]</label>\n      <select [(ngModel)]=\"settings.imgUrl\" >\n        <option *ngFor=\"let i of imageSources\" [value]=\"i\" >{{i.replace('/iceey-puzzle','').replace('/assets/','')}}</option>\n      </select>    \n    </td>\n  </tr>\n  <tr>\n    <td>\n      <label>Input: [basicDimension]</label>\n      <input type=\"number\" [(ngModel)]=\"settings.dimension\" min=\"200\" >\n    </td>\n  </tr>\n  <tr>\n    <td>\n      <label>Input: [puzzleLevel]</label>\n      <input type=\"number\" [(ngModel)]=\"settings.level\" min=\"3\" >\n    </td>\n  </tr>\n  <tr>\n    <td>\n      <label>Input: [delay]</label>\n      <input type=\"number\" [(ngModel)]=\"settings.delay\" step=\"0.1\" >\n    </td>\n  </tr>\n  <tr>\n    <td>\n      Output: (puzzleClick) - Fires an $event. Emits true when the puzzle is completed. See console window\n    </td>\n  </tr>\n  <tr>\n    <td>\n      Method: <button (click)=\"puzzle.shuffle()\" >shuffle()</button> - Shuffle puzzle pieces\n    </td>\n  </tr>\n  <tr>\n    <td>\n      Method: <button (click)=\"puzzle.arrange()\" >arrange()</button> - Arrange puzzle pieces\n    </td>\n  </tr>\n</table>\n\n\n"
+        styles: [".description tr td{ border-top:solid 1px black; padding:3px }"],
+        template: "\n\n\n<p>Installation</p>\n<pre><code>npm install iceey-puzzle</code></pre>\n<br>\n<p>Add Iceey Puzzle to your root module</p>\n<pre>\n  <code>\n    {{\"import { IceeyPuzzleModule } from 'iceey-puzzle';\"}}\n\n    imports: [\n      ...\n      IceeyPuzzleModule\n    ]\n  </code>\n</pre>\n<br>\n<div [style.text-align]=\"'center'\" >\n  <iceey-puzzle \n      #puzzle\n      [imgUrl]=\"settings.imgUrl\"\n      [basicDimension]=\"settings.dimension\"\n      [puzzleLevel]=\"settings.level\"\n      [delay]=\"settings.delay\"\n      (puzzleClick)=\"console.log($event)\" >\n  </iceey-puzzle>\n</div>\n<br>\n<p>Usage</p>\n<pre><code>{{usage}}</code></pre>\n<table class=\"description\">\n  <tr>\n    <td>\n      <pre><code>{{imgUrlUsage}}</code></pre>\n    </td>\n    <td>\n      <select [(ngModel)]=\"settings.imgUrl\" >\n        <option *ngFor=\"let i of imageSources\" [value]=\"i\" >{{i.replace('/iceey-puzzle','').replace('/assets/','')}}</option>\n      </select>        \n    </td>\n  </tr>\n  <tr>\n    <td>\n      <pre><code>{{basicDimensionUsage}}</code></pre>\n    </td>\n    <td>\n      <input type=\"number\" [(ngModel)]=\"settings.dimension\" min=\"200\" >      \n    </td>\n  </tr>\n  <tr>\n    <td>\n      <pre><code>{{puzzleLevelUsage}}</code></pre>\n    </td>\n    <td>\n      <input type=\"number\" [(ngModel)]=\"settings.level\" min=\"3\" >\n    </td>\n  </tr>\n  <tr>\n    <td>\n      <pre><code>{{delayUsage}}</code></pre>\n    </td>\n    <td>\n      <input type=\"number\" [(ngModel)]=\"settings.delay\" step=\"0.1\" >\n    </td>    \n  </tr>\n  <tr>\n    <td>\n      <pre><code>{{puzzleClickUsage}}</code></pre>\n    </td>\n    <td>Fires $event. Emits true when the puzzle is completed. See console window</td>\n  </tr>\n  <tr>\n    <td>\n      <pre><code>{{shuffleUsage}}</code></pre>\n    </td>\n    <td><button (click)=\"puzzle.shuffle()\" >Everyday I'm shufflin</button></td>\n  </tr>\n  <tr>\n    <td>\n      <pre><code>{{arrangeUsage}}</code></pre>\n    </td>\n    <td>\n     <button (click)=\"puzzle.arrange()\" >Arrange it!</button>\n    </td>\n  </tr>\n</table>\n\n\n"
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* ElementRef */]) === "function" && _a || Object])
 ], IndexComponent);
@@ -191,21 +202,14 @@ var PuzzleComponent = (function () {
         this.elem = elem;
         this.puzzleClick = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* EventEmitter */]();
         this.delay = .5;
+        this.puzzleLevel = 3;
+        this.basicDimension = 255;
         this.puzzlePieces = [];
     }
     PuzzleComponent.prototype.ngOnChanges = function (changes) {
         this.beginPuzzle();
     };
     PuzzleComponent.prototype.ngOnInit = function () {
-        //test
-        // this.basicDimension = 225;
-        // this.imgUrl = "/iceey-puzzle/assets/download.jpg";
-        // this.puzzleLevel = 3;
-        //test
-        //console.log(JSON.parse(JSON.stringify(this)));
-        //console.log("start assign and shuffle");
-        //console.log('pieces',this.puzzlePieces);
-        //console.log('puzzleBoard',this.getBoardPossition());
         this.beginPuzzle();
     };
     PuzzleComponent.prototype.beginPuzzle = function () {
