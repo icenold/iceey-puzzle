@@ -11,6 +11,9 @@ import { IndexComponent } from './index.component';
     IndexComponent,
     PuzzleComponent
   ],
+  exports: [
+    PuzzleComponent
+  ],
   imports: [
     BrowserModule,
     FormsModule,
