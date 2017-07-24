@@ -16,7 +16,7 @@ export class PuzzleComponent  {
   ngOnChanges(changes: any) {
     this.beginPuzzle();
   }
-  @Input() basicDimension:number;
+  @Input() basicDimension:number = 255;
 
   puzzlePieces:PuzzlePiece[] = [];
   
