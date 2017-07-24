@@ -118,7 +118,7 @@ export class IndexComponent  {
   };
   usage = `<iceey-puzzle></iceey-puzzle>`;
   imgUrlUsage = `<iceey-puzzle [imgUrl]="<string>" ></iceey-puzzle>`;
-  basicDimensionUsage = `<iceey-puzzle [basicDimensionUsage]="<number>" ></iceey-puzzle>`;
+  basicDimensionUsage = `<iceey-puzzle [basicDimension]="<number>" ></iceey-puzzle>`;
   puzzleLevelUsage = `<iceey-puzzle [puzzleLevel]="<number>" ></iceey-puzzle>`;
   delayUsage = `<iceey-puzzle [delay]="<number>" ></iceey-puzzle>`;
   puzzleClickUsage = `<iceey-puzzle (puzzleClick)="doSomething($event)" ></iceey-puzzle>`;

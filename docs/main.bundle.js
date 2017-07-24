@@ -158,7 +158,7 @@ var IndexComponent = (function () {
         };
         this.usage = "<iceey-puzzle></iceey-puzzle>";
         this.imgUrlUsage = "<iceey-puzzle [imgUrl]=\"<string>\" ></iceey-puzzle>";
-        this.basicDimensionUsage = "<iceey-puzzle [basicDimensionUsage]=\"<number>\" ></iceey-puzzle>";
+        this.basicDimensionUsage = "<iceey-puzzle [basicDimension]=\"<number>\" ></iceey-puzzle>";
         this.puzzleLevelUsage = "<iceey-puzzle [puzzleLevel]=\"<number>\" ></iceey-puzzle>";
         this.delayUsage = "<iceey-puzzle [delay]=\"<number>\" ></iceey-puzzle>";
         this.puzzleClickUsage = "<iceey-puzzle (puzzleClick)=\"doSomething($event)\" ></iceey-puzzle>";
