@@ -12,7 +12,7 @@ export class PuzzleComponent  {
   @Output() puzzleClick:EventEmitter<any> = new EventEmitter<any>();
   @Input() delay:number = .5;
   @Input() imgUrl:string;
-  @Input() puzzleLevel:number;
+  @Input() puzzleLevel:number = 3;
   ngOnChanges(changes: any) {
     this.beginPuzzle();
   }
@@ -23,16 +23,6 @@ export class PuzzleComponent  {
   jsonCorrectPositions:string;
 
   ngOnInit() {
-    //test
-    // this.basicDimension = 225;
-    // this.imgUrl = "/iceey-puzzle/assets/download.jpg";
-    // this.puzzleLevel = 3;
-    //test
-    //console.log(JSON.parse(JSON.stringify(this)));
-    //console.log("start assign and shuffle");
-    
-    //console.log('pieces',this.puzzlePieces);
-    //console.log('puzzleBoard',this.getBoardPossition());
     this.beginPuzzle();
   }
   beginPuzzle(){
